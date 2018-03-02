@@ -331,6 +331,13 @@ namespace TLSharp.Core
                 new TLRequestGetDialogs() { OffsetDate = 0, OffsetPeer = peer, Limit = 100 });
         }
 
+        public async Task<TLDialogsSlice> GetUserDialogsSliceAsync()
+        {
+            var peer = new TLInputPeerSelf();
+            return await SendRequestAsync<TLDialogsSlice>(
+                new TLRequestGetDialogs() { OffsetDate = 0, OffsetPeer = peer, Limit = 100 });
+        }
+
         public async Task<TLAbsUpdates> SendUploadedPhoto(TLAbsInputPeer peer, TLAbsInputFile file, string caption)
         {
             return await SendRequestAsync<TLAbsUpdates>(new TLRequestSendMedia()

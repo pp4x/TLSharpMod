@@ -149,7 +149,7 @@ namespace TLSharpPOC
                 }
 
 
-                var dialogs = (TLDialogs) await client.GetUserDialogsAsync();
+                var dialogs = await client.GetUserDialogsSliceAsync();
                 Console.WriteLine("Channels: ");
                 foreach (var channelObj in dialogs.Chats.OfType<TLChannel>())
                 {
@@ -240,7 +240,7 @@ namespace TLSharpPOC
 		// -- Wait in a loop to handle incoming updates. No need to poll.
                 for (;;)
                 {
-                    await client.WaitEventAsync();
+                    await client.WaitEventAsync(1000);
                 }
             }
             catch (Exception e)

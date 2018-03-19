@@ -109,7 +109,7 @@ namespace TLSharp.Core.Network
                 var socketError = io.InnerException as SocketException;
                 if (socketError != null && socketError.SocketErrorCode == SocketError.TimedOut)
                     throw new OperationCanceledException();
-                throw io;
+                throw;
             }
             if (bytes != 4)
                 throw new InvalidOperationException("Couldn't read the packet length");

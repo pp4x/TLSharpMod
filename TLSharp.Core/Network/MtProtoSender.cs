@@ -575,11 +575,11 @@ namespace TLSharp.Core.Network
                 }
                 catch (BadMessageException e)
                 {
-                    throw e;
+                    throw;
                 }
                 catch (Exception e)
                 {
-                    logger.Debug($"failed to process message in contailer: {e}");
+                    logger.Debug($"failed to process message in container: {e}");
                     messageReader.BaseStream.Position = beginPosition + innerLength;
                 }
             }

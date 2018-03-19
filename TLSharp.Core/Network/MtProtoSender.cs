@@ -262,7 +262,7 @@ namespace TLSharp.Core.Network
 			}
 			catch (Exception ex)
 			{
-                logger.Debug($"HandleUpdate failed: {ex}");
+                logger.Debug($"HandleUpdate failed: {ex.ToString()}");
 			}
             return false;
         }
